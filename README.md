@@ -1,17 +1,16 @@
-# Project Name
+# P5JS Template
 
-A generative art project created by Matthew Woodward using p5.js.
+A quick-start template to spin up a p5js server, with vercel support and a few other goodies.
 
 ## Description
 
-This project is a web-based generative art application that creates unique artworks based on random seeds. It utilizes p5.js for rendering and includes features such as regeneration, exporting, and mobile support.
+This project is a web-based generative art application that creates unique artworks based on random seeds. It utilizes p5.js for rendering and includes features such as regeneration and exporting.
 
 ## Features
 
-- Randomly generated artwork
+- Randomly generated seed
 - Regeneration of artwork with new seeds
 - Export functionality (low and high resolution)
-- Mobile-friendly interface
 - Customizable color palettes using randomColor.js
 - Toast notifications for user feedback
 
