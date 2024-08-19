@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <title>%PROJECT_NAME%</title>
+    <meta name="description" content="%PROJECT_NAME% by artist and creative Matthew Woodward">
+    <meta name="keywords" content="digital art, painting, generative art, palette generator, processing, p5js">
+    <meta name="author" content="Matthew Woodward">
+    <meta property="og:title" content="%PROJECT_NAME% / MJW 2024">
+    <meta property="og:description" content="%PROJECT_NAME% by artist and creative Matthew Woodward">
+    <!-- <meta property="og:image" content="https://%PROJECT_SLUG%.tmp.studio/%PROJECT_SLUG%-OG.png"> -->
+    <meta property="og:url" content="https://%PROJECT_SLUG%.tmp.studio/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="%PROJECT_NAME% / MJW 2024">
+    <meta name="twitter:description" content="%PROJECT_NAME% by artist and creative Matthew Woodward">
+    <!-- <meta name="twitter:image" content="https://%PROJECT_SLUG%.tmp.studio/%PROJECT_SLUG%-TW.png"> -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="canvas-container">
+        <div id="canvas-wrapper"></div>
+      </div>
+      <div id="toast-container"></div>
+      <div id="controls">
+        <div class="control-group">
+          <button class="control-button" id="regenerate">Regenerate (r)</button>
+          <button class="control-button" id="save">Export (s)</button>
+        </div>
+        <div class="control-group">
+          <label class="control-label" id="seed"></label>
+          <label class="control-label" id="frame-counter"></label>
+        </div>
+      </div>
+      <div id="mobile-controls">
+        <button class="mobile-control-button" id="mobile-regenerate">Re-generate</button>
+        <button class="mobile-control-button" id="mobile-save-2x">Export</button>
+      </div>
+    </main>
+    <script src="./lib/p5.min.js"></script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "p5-template",
+  "version": "1.0.0",
+  "description": "p5js template by mjw",
+  "main": "index.html",
+  "author": "Matthew Woodward",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "browser-sync": "^3.0.2",
+    "express": "^4.19.2",
+    "p5.grain": "^0.7.0",
+    "p5js": "^1.2.18",
+    "randomcolor": "^0.6.2",
+    "simplex-noise": "^4.0.3",
+    "tweakpane": "^4.0.4"
+  },
+  "scripts": {
+    "dev": "node dev.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required'"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "env-cmd": "^10.1.0"
+  }
+}
