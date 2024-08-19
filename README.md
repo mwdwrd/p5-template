@@ -2,6 +2,10 @@
 
 A quick-start template to spin up a p5js server, with vercel support and a few other goodies.
 
+<video src="sample.webm" width="640" height="360" controls>
+  Your browser does not support the video tag.
+</video>
+
 ## Description
 
 This project is a web-based generative art application that creates unique artworks based on random seeds. It utilizes p5.js for rendering and includes features such as regeneration and exporting.

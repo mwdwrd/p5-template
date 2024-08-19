@@ -3,7 +3,7 @@ import { Generator } from './generator.js';
 
 let painter, currentParams, generator;
 let isRegenerating = false, isInitialLoad = true;
-let canvasWidth = 1000, canvasHeight = 1000;
+let canvasWidth = 600, canvasHeight = 600;
 
 function getUrlParams() {
   return new URLSearchParams(window.location.search);
@@ -47,6 +47,13 @@ async function regenerateArtwork() {
   isRegenerating = false;
 }
 
+function rePlayArtwork() {
+  if (isRegenerating) return;
+  isRegenerating = true;
+  painter.rePlay();
+  isRegenerating = false;
+}
+
 function updateUrlWithSeed(seed) {
   const newUrl = new URL(window.location);
   newUrl.searchParams.set('seed', seed);
@@ -55,6 +62,7 @@ function updateUrlWithSeed(seed) {
 
 function setupEventListeners() {
   document.getElementById('regenerate')?.addEventListener('click', regenerateArtwork);
+  document.getElementById('replay')?.addEventListener('click', rePlayArtwork);
   document.getElementById('save')?.addEventListener('click', () => handleSave('save'));
   document.addEventListener('keydown', handleKeyPress);
 }
@@ -73,6 +81,7 @@ function handleKeyPress(event) {
   if (event.target.tagName === 'INPUT') return;
   const actions = {
     'r': regenerateArtwork,
+    'p': rePlayArtwork,
     's': () => painter.saveLowRes(),
     '2': () => painter.saveHighRes(2),
     '4': () => painter.saveHighRes(4)

@@ -44,6 +44,14 @@ export function sketch(p, canvasWidth, canvasHeight, params, generator) {
     p.loop();
   };
 
+  p.rePlay = () => {
+    p.clear();
+    p.frameCount = 0;
+    p.noiseSeed(seed);
+    p.background(palette[0]);
+    p.loop();
+  };
+
   p.saveLowRes = () => {
     return new Promise((resolve, reject) => {
       let filename = `Artwork_${seed}`; 
@@ -66,6 +74,7 @@ export function sketch(p, canvasWidth, canvasHeight, params, generator) {
       onFinish = finishCallback;
     },
     reDraw: p.reDraw,
+    rePlay: p.rePlay,
     saveLowRes: p.saveLowRes,
     saveHighRes: p.saveHighRes
   };
