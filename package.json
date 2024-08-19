@@ -17,8 +17,8 @@
     "tweakpane": "^4.0.4"
   },
   "scripts": {
-    "dev": "node dev.js",
-    "start": "node server.js",
+    "dev": "node server/dev.js",
+    "start": "node server/prod.js",
     "build": "echo 'No build step required'"
   },
   "devDependencies": {

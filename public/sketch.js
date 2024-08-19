@@ -1,5 +1,8 @@
 export function sketch(p, canvasWidth, canvasHeight, params, generator) {
   let seed = params.seed;
+  let palette = params.palette;
+  let gridSize = params.gridSize;
+  let frameEnd = 100;
   let onFrameUpdate;
   let onFinish;
   let canvas;
@@ -8,21 +11,23 @@ export function sketch(p, canvasWidth, canvasHeight, params, generator) {
     canvas = p.createCanvas(canvasWidth, canvasHeight);
     p.frameRate(60);
     p.pixelDensity(2);
-    p.background(255);
-    // Initialize your artwork here
-    // You can use generator methods like:
-    // let randomValue = generator.random();
-    // let rangeValue = generator.randomInRange(0, 100);
   };
 
   p.draw = () => {
-    // Your drawing logic here
-    // p.ellipse(p.width / 2, p.height / 2, generator.randomInRange(10, 50), generator.randomInRange(10, 50));
+    let cellWidth = canvasWidth / gridSize;
+    let cellHeight = canvasHeight / gridSize;
 
-    if (onFrameUpdate) onFrameUpdate(p.frameCount, 100); // Update with your total frames
-    
-    // Check if artwork is complete
-    if (p.frameCount >= 100) {
+    for (let x = 0; x < gridSize; x++) {
+      for (let y = 0; y < gridSize; y++) {
+        let noiseVal = p.noise(x * 0.1, y * 0.1, p.frameCount * 0.02);
+        let colorIndex = Math.floor(p.map(noiseVal, 0, 1, 1, palette.length - 1));
+        p.fill(palette[colorIndex]);
+        p.rect(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
+      }
+    }
+
+    if (onFrameUpdate) onFrameUpdate(p.frameCount, frameEnd);
+    if (p.frameCount >= frameEnd) {
       p.noLoop();
       if (onFinish) onFinish();
     }
@@ -30,10 +35,12 @@ export function sketch(p, canvasWidth, canvasHeight, params, generator) {
 
   p.reDraw = (newParams) => {
     p.clear();
-    p.background(255);
     p.frameCount = 0;
     seed = newParams.seed;
-    // Reset your artwork with new parameters
+    palette = newParams.palette;
+    gridSize = newParams.gridSize;
+    p.noiseSeed(seed);
+    p.background(palette[0]);
     p.loop();
   };
 
@@ -50,7 +57,6 @@ export function sketch(p, canvasWidth, canvasHeight, params, generator) {
   };
 
   p.saveHighRes = (scale) => {
-    // Implement high-res saving logic here
     return Promise.resolve();
   };
 

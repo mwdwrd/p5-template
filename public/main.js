@@ -3,7 +3,7 @@ import { Generator } from './generator.js';
 
 let painter, currentParams, generator;
 let isRegenerating = false, isInitialLoad = true;
-let canvasWidth, canvasHeight;
+let canvasWidth = 1000, canvasHeight = 1000;
 
 function getUrlParams() {
   return new URLSearchParams(window.location.search);
@@ -24,9 +24,6 @@ function updateSeedDisplay(seed) {
 window.onload = () => {
   const urlParams = getUrlParams();
   const seedFromUrl = urlParams.get('seed');
-
-  canvasWidth = 540;  // Adjust as needed
-  canvasHeight = 960; // Adjust as needed
 
   painter = new p5(p => {
     generator = new Generator(p);

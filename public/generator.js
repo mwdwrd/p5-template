@@ -16,10 +16,9 @@ export class Generator {
     
     return {
       seed,
+      palette: randomColor({ seed: seed, count: 4, hue: 'random', random: this.p5Instance.random }),
+      gridSize: Math.floor(this.p5Instance.random(2, 24)),
       // Add your artwork parameters here
-      // Example:
-      // color: this.p5Instance.color(this.p5Instance.random(255), this.p5Instance.random(255), this.p5Instance.random(255)),
-      // size: this.p5Instance.random(10, 100),
     };
   }
 
